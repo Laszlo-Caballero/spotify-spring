@@ -35,6 +35,9 @@ public class Album {
     public Date releaseDate;
 
 
+    @Column(columnDefinition = "boolean default true")
+    public Boolean status;
+
     @ManyToMany
     @JoinTable(name = "album_songs",
                joinColumns = @JoinColumn(name = "AlbumId"),

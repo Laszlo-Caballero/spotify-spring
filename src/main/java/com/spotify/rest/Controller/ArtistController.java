@@ -50,5 +50,4 @@ public class ArtistController {
     public ResponseEntity<ApiResponse<Void>> deleteArtist(@PathVariable int id) {
         return artistService.deleteArtist(id);
     }
-
 }
