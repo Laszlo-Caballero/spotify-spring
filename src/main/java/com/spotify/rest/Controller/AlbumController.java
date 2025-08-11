@@ -35,23 +35,27 @@ public class AlbumController {
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> getAlbumById(@PathVariable int id) {
         return albumService.getAlbumById(id);
     }
 
 
     @PostMapping
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> createAlbum(@RequestBody @Valid AlbumDto album) {
         return albumService.createAlbum(album);
     }
 
 
     @PutMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> updateAlbum(@PathVariable int id, @RequestBody @Valid AlbumDto album) {
         return albumService.updateAlbum(id, album);
     }
 
     @DeleteMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Void>> deleteAlbum(@PathVariable int id) {
         return albumService.deleteAlbum(id);
     }
