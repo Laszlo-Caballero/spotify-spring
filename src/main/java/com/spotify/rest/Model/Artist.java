@@ -19,7 +19,7 @@ import lombok.Setter;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ArtistId;
+    public int artistId;
     @Column(name = "name")
     private String Name;
 

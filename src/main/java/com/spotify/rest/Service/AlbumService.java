@@ -38,7 +38,7 @@ public class AlbumService {
     public ResponseEntity<ApiResponse<Album>> createAlbum(AlbumDto albumDto) {
         var newAlbum = albumDto.builderAlbum();
 
-        var findArtist = artistRepository.findAllByIdIn(albumDto.artists);
+        var findArtist = artistRepository.findAllByArtistIdIn(albumDto.artists);
 
         if(findArtist.isEmpty() || findArtist.size() != albumDto.artists.size()){
             return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Artist not found", null));
@@ -58,7 +58,7 @@ public class AlbumService {
             return ResponseEntity.status(404).body(new ApiResponse<>(404, "Album not found", null));
         }
 
-        var findArtist = artistRepository.findAllByIdIn(albumDto.artists);
+        var findArtist = artistRepository.findAllByArtistIdIn(albumDto.artists);
 
         if(findArtist.isEmpty() || findArtist.size() != albumDto.artists.size()){
             return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Artist not found", null));

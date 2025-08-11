@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.spotify.rest.Model.Artist;
 
 public interface ArtistRepository extends JpaRepository<Artist, Integer> {
-    List<Artist> findAllByIdIn(List<Integer> ids);
+    List<Artist> findAllByArtistIdIn(List<Integer> ids);
 }
