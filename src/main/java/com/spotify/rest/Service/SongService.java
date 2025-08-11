@@ -52,9 +52,6 @@ public class SongService {
         }
 
         newSong.setAlbums(findAlbums);
-        
-
-
         songRepository.save(newSong);
 
         return ResponseEntity.ok(new ApiResponse<>(200, "Song create", newSong));
