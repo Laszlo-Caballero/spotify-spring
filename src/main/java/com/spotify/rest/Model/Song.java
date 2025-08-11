@@ -22,15 +22,19 @@ import lombok.Setter;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int SongId;
+    @JsonView(View.SongView.class)
+    private int songId;
 
     @Column(name = "title")
-    private String Title;
+    @JsonView(View.SongView.class)
+    private String title;
 
     @Column
+    @JsonView(View.SongView.class)
     public int views;
 
     @Column(columnDefinition = "BIT DEFAULT 1")
+    @JsonView(View.SongView.class)
     public Boolean status;
 
     @ManyToMany(mappedBy = "songs")

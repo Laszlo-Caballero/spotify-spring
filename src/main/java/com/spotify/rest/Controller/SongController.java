@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Dto.SongDto;
 import com.spotify.rest.Model.Song;
 import com.spotify.rest.Service.SongService;
+import com.spotify.rest.Views.View;
 import com.spotify.rest.utils.ApiResponse;
 
 import jakarta.validation.Valid;
@@ -29,26 +31,31 @@ public class SongController {
     private SongService songService;
 
     @GetMapping
-     public ResponseEntity<ApiResponse<List<Song>>> getAllSongs(){
+    @JsonView(View.SongView.class)
+    public ResponseEntity<ApiResponse<List<Song>>> getAllSongs(){
         return songService.getAllSongs();
      }
 
      @GetMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> getSongById(@PathVariable int id){
         return songService.getSongById(id);
      }
 
      @PostMapping
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> createSong(@RequestBody @Valid SongDto songDto){
         return songService.createSong(songDto);
      }
 
      @PutMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> updateSong(@PathVariable int id, @RequestBody @Valid SongDto songDto){
         return songService.updateSong(id, songDto);
      }
 
      @DeleteMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Void>> deleteSong(@PathVariable int id){
         return songService.deleteSong(id);
      }

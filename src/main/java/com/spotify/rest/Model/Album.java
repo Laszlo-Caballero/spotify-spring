@@ -29,20 +29,20 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public int albumId;
 
     @Column
-    @JsonView({View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public String NameAlbum;
 
     @Temporal(TemporalType.DATE)
-    @JsonView({View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public Date releaseDate;
 
 
     @Column(columnDefinition = "BIT DEFAULT 1")
-    @JsonView({View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public Boolean status;
 
     @ManyToMany
@@ -57,7 +57,7 @@ public class Album {
     @JoinTable(name = "album_artists",
                joinColumns = @JoinColumn(name = "AlbumId"),
                inverseJoinColumns = @JoinColumn(name = "ArtistId"))
-    @JsonView(View.AlbumView.class)
+    @JsonView({View.AlbumView.class, View.SongView.class})
     public List<Artist> artists;
 
 }
