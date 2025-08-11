@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApiResponse<T> {
-    @JsonView({View.ArtistView.class, View.AlbumView.class})
+    @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
     private int code;
 
-    @JsonView({View.ArtistView.class, View.AlbumView.class})
+    @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
     private String message;
     
-    @JsonView({View.ArtistView.class, View.AlbumView.class})
+    @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
     private T data;
 }

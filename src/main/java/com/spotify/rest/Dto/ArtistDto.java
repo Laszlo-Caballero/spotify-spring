@@ -31,6 +31,7 @@ public class ArtistDto {
         Artist artist = new Artist();
         artist.setName(this.Name);
         artist.setDescription(this.description);
+        artist.setStatus(true);
         return artist;
     }
 

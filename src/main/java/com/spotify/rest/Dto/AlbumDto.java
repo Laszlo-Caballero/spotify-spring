@@ -36,6 +36,7 @@ public class AlbumDto {
         Album album = new Album();
         album.setNameAlbum(this.NameAlbum);
         album.setReleaseDate(this.releaseDate);
+        album.setStatus(true);
         return album;
     }
 }
