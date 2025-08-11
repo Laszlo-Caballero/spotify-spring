@@ -3,6 +3,9 @@ package com.spotify.rest.Model;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.spotify.rest.Views.View;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,22 +29,27 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public int AlbumId;
 
     @Column
+    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public String NameAlbum;
 
     @Temporal(TemporalType.DATE)
+    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public Date releaseDate;
 
 
-    @Column(columnDefinition = "boolean default true")
+    @Column(columnDefinition = "BIT DEFAULT 1")
+    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public Boolean status;
 
     @ManyToMany
     @JoinTable(name = "album_songs",
                joinColumns = @JoinColumn(name = "AlbumId"),
                inverseJoinColumns = @JoinColumn(name = "SongId"))
+    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public List<Song> songs;
 
 
@@ -49,6 +57,7 @@ public class Album {
     @JoinTable(name = "album_artists",
                joinColumns = @JoinColumn(name = "AlbumId"),
                inverseJoinColumns = @JoinColumn(name = "ArtistId"))
+    @JsonView(View.AlbumView.class)
     public List<Artist> artists;
 
 }

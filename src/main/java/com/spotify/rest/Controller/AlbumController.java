@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Dto.AlbumDto;
 import com.spotify.rest.Model.Album;
 import com.spotify.rest.Service.AlbumService;
+import com.spotify.rest.Views.View;
 import com.spotify.rest.utils.ApiResponse;
 
 import jakarta.validation.Valid;
@@ -27,6 +29,7 @@ public class AlbumController {
     private AlbumService albumService;
 
     @GetMapping
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums() {
         return albumService.getAllAlbums();
     }
@@ -52,5 +55,4 @@ public class AlbumController {
     public ResponseEntity<ApiResponse<Void>> deleteAlbum(@PathVariable int id) {
         return albumService.deleteAlbum(id);
     }
-
 }

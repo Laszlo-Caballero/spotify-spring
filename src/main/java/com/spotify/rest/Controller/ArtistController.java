@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Dto.ArtistDto;
 import com.spotify.rest.Model.Artist;
 import com.spotify.rest.Service.ArtistService;
+import com.spotify.rest.Views.View;
 import com.spotify.rest.utils.ApiResponse;
 
 import jakarta.validation.Valid;
@@ -28,6 +30,7 @@ public class ArtistController {
     private ArtistService artistService;
 
     @GetMapping
+    @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<List<Artist>>> getAllArtists() {
         return artistService.getAllArtists();
     }
