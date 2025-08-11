@@ -10,6 +10,7 @@ import com.spotify.rest.Dto.AlbumDto;
 import com.spotify.rest.Model.Album;
 import com.spotify.rest.Repository.AlbumRepository;
 import com.spotify.rest.Repository.ArtistRepository;
+import com.spotify.rest.Repository.FileRepository;
 import com.spotify.rest.utils.ApiResponse;
 
 @Service
@@ -19,6 +20,8 @@ public class AlbumService {
     private AlbumRepository albumRepository;
     @Autowired
     private ArtistRepository artistRepository;
+    @Autowired
+    private FileRepository fileRepository;
 
 
     public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums(){
@@ -43,8 +46,14 @@ public class AlbumService {
         if(findArtist.isEmpty() || findArtist.size() != albumDto.artists.size()){
             return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Artist not found", null));
         }
-        
+
+        var findCover = fileRepository.findById(albumDto.getCoverFile()).orElse(null);
+        if(findCover == null){
+            return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Cover file not found", null));
+        }
+
         newAlbum.setArtists(findArtist);
+        newAlbum.setFile(findCover);
         albumRepository.save(newAlbum);
         return ResponseEntity.ok(new ApiResponse<>(200, "Album created successfully", newAlbum));
     }
@@ -64,9 +73,16 @@ public class AlbumService {
             return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Artist not found", null));
         }
 
+
+        var findCover = fileRepository.findById(albumDto.getCoverFile()).orElse(null);
+        if(findCover == null){
+            return ResponseEntity.badRequest().body(new ApiResponse<>(400, "Cover file not found", null));
+        }
+
         findAlbum.setNameAlbum(albumDto.getNameAlbum());
         findAlbum.setReleaseDate(albumDto.getReleaseDate());
         findAlbum.setArtists(findArtist);
+        findAlbum.setFile(findCover);
         albumRepository.save(findAlbum);
         return ResponseEntity.ok(new ApiResponse<>(200, "Album updated successfully", findAlbum));
     }

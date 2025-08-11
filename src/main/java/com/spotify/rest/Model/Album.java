@@ -14,7 +14,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -65,5 +64,6 @@ public class Album {
 
     @ManyToOne
     @JoinColumn(name = "FileId")
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public File file;
 }

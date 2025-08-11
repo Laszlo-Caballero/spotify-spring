@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,10 @@ public class AlbumDto {
     @NotNull(message = "Artists cannot be null")
     @NotEmpty(message = "Artists cannot be empty")
     public List<@Min(value = 0, message = "Number of tracks must be a positive integer") Integer> artists;
+
+    @NotNull(message = "Files cannot be null")
+    @Positive(message = "Files must be a positive integer")
+    public int coverFile;
 
     public Album builderAlbum() {
         Album album = new Album();
