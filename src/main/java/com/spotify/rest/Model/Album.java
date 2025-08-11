@@ -30,7 +30,7 @@ public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView({View.AlbumView.class, View.ArtistView.class})
-    public int AlbumId;
+    public int albumId;
 
     @Column
     @JsonView({View.AlbumView.class, View.ArtistView.class})

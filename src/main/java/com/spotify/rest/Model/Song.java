@@ -2,6 +2,9 @@ package com.spotify.rest.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.spotify.rest.Views.View;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,8 +30,11 @@ public class Song {
     @Column
     public int views;
 
+    @Column(columnDefinition = "BIT DEFAULT 1")
+    public Boolean status;
 
     @ManyToMany(mappedBy = "songs")
+    @JsonView(View.SongView.class)
     private List<Album> albums;
     
 }

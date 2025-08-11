@@ -2,7 +2,6 @@ package com.spotify.rest.Model;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Views.View;
 
