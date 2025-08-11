@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +35,9 @@ public class SongService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse<>(404, "Not found Song", null));
         }
 
+        int updateView = findSong.getViews() + 1;
+        findSong.setViews(updateView);
+        songRepository.save(findSong);
         return ResponseEntity.ok(new ApiResponse<>(200, "Song found", findSong));
     }
 
