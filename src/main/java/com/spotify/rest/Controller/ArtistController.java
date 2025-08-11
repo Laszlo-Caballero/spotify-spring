@@ -36,20 +36,24 @@ public class ArtistController {
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<Artist>> getArtistById(@PathVariable int id) {
         return artistService.getArtistById(id);
     }
 
     @PostMapping
+    @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<Artist>> createArtist(@RequestBody @Valid ArtistDto artist) {
         return artistService.createArtist(artist);
     }
     @PutMapping("/{id}")
+    @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<Artist>> updateArtist(@PathVariable int id, @RequestBody @Valid ArtistDto artistDto) {
         return artistService.updateArtist(id, artistDto);
     }
 
     @DeleteMapping("/{id}")
+    @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<Void>> deleteArtist(@PathVariable int id) {
         return artistService.deleteArtist(id);
     }
