@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9D2921DD-7DD6-0A57-BA3F-59DD2CCB6FC4" name="Artist">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>54292926-226A-6BC5-1E40-AACF2A0C2047</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ArtistId" id="D9A5C123-3408-E71E-7EFF-EF17B5B13DC0">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>0BE57524-22B9-FB91-1C7F-5FCCC5CDCDA1</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="F2EE8372-71C8-F1E6-1BBE-F190E0DC15CD">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>BFA08375-0E4D-F366-9D12-79D82C3724B1</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="DBD7A5AF-B041-0320-3978-5D963568C054">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>B3245435-073E-C327-8870-B1B9BCA97FE4</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="follow" id="2A8CC567-4145-7D22-B4FC-EBA55A9D8164">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>DADA25AE-3258-F51B-E132-3F26F223BBB1</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B9172BB2-3A2B-85FD-676B-73318DFF000C" name="Artist_PK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>7174B1E7-C4B2-81AE-AF8B-E332E894F672</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9A5C123-3408-E71E-7EFF-EF17B5B13DC0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

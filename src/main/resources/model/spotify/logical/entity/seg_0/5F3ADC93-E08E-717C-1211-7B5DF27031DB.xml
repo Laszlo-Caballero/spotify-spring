@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5F3ADC93-E08E-717C-1211-7B5DF27031DB" name="Songs">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:41:06 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="SongId" id="2155A5D0-D6BF-CA95-4AA0-53591E4F7FD3">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:41:16 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Title" id="368B71CC-2C9D-B116-0335-05B14E575E56">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:41:28 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="banner" id="C82886A0-C679-4265-130C-C51ACF1B3B1B">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:41:56 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="views" id="3BC798D5-BE42-3D4E-C6AD-ABDDB0455169">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:48:03 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="716755F2-EF66-203E-1962-F943DFB6375C" name="Songs PK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:41:21 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2155A5D0-D6BF-CA95-4AA0-53591E4F7FD3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

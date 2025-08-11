@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C2FA960D-FC22-0110-3DB3-4D38D34CD168" name="Playlist">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:43:12 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="playId" id="E2C25A64-92B7-45E8-D842-480C5575BECA">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:43:50 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="AD3C0962-7990-B47F-23FD-78E5FD84AF45">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:43:54 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

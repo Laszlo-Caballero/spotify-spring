@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DE9E8E56-9E74-52B8-5D3F-4D75B0D777D8" name="Album">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:37:45 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="AlbumId" id="0BAAD688-4899-C160-01DA-DCAB17FED3E1">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:37:53 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NombreAlbum" id="EF328C66-E2D4-5638-DDEA-AD9038AEFC3A">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:38:00 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date" id="93344B5C-5469-6059-5782-BC2D24C9D8A5">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:48:37 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

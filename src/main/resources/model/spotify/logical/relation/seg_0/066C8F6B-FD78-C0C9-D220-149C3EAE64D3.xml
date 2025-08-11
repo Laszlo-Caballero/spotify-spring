@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_5" directorySegmentName="seg_0" id="066C8F6B-FD78-C0C9-D220-149C3EAE64D3">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:44:37 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>5F3ADC93-E08E-717C-1211-7B5DF27031DB</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C2FA960D-FC22-0110-3DB3-4D38D34CD168</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="addDate" id="E11AB68D-91A5-337E-F903-E304760BB3FC">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:45:07 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

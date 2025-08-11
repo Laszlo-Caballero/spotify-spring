@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="54292926-226A-6BC5-1E40-AACF2A0C2047" name="Artist">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:42:40 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ArtistId" id="0BE57524-22B9-FB91-1C7F-5FCCC5CDCDA1">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:43:01 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Name" id="BFA08375-0E4D-F366-9D12-79D82C3724B1">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:43:15 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="B3245435-073E-C327-8870-B1B9BCA97FE4">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:50:23 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="follow" id="DADA25AE-3258-F51B-E132-3F26F223BBB1">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:50:40 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7174B1E7-C4B2-81AE-AF8B-E332E894F672" name="Artist PK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-05 02:43:08 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<engineerTo>
+<item key="30A543B5-C904-A960-99BE-A7B40B30374B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0BE57524-22B9-FB91-1C7F-5FCCC5CDCDA1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

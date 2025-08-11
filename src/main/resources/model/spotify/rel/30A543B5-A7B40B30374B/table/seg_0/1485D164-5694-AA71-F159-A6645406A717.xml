@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1485D164-5694-AA71-F159-A6645406A717" name="Relation_4">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="User_User_ID" id="3FBABEB7-EA07-7E68-D0B6-E80D78056290">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D93ADE5-6BC6-0953-1CBC-A1DE3EC525C7" referredColumn="C317D91A-4446-A6AD-22F7-4197EC0F6C13"/>
+</associations>
+</Column>
+<Column name="Playlist_Playlist_ID" id="D768E428-027B-187A-CE09-6C27FC6F4352">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1070B164-C6D1-1BDB-9F4D-9513BD2FB00B" referredColumn="A58D709F-D210-587D-AF9F-300B5670FEEA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E2F02874-40CA-2174-6EF8-97FA06BD15DC" name="Relation_4_PK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FBABEB7-EA07-7E68-D0B6-E80D78056290"/>
+<colUsage columnID="D768E428-027B-187A-CE09-6C27FC6F4352"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D67E9DE9-EFEC-A3B2-B95F-9A759DFF5D01" name="Relation_4_User_FK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<generatorID>A1A26DB7-C7C1-E169-84B7-E60BB7256721</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FBABEB7-EA07-7E68-D0B6-E80D78056290"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFBDADA1-E5AD-B9D2-217D-DD4E9691AEDB" name="Relation_4_Playlist_FK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<generatorID>A1A26DB7-C7C1-E169-84B7-E60BB7256721</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D768E428-027B-187A-CE09-6C27FC6F4352"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

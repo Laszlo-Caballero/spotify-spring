@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DD343506-89EA-57D8-B9C5-9744C65C1017" name="Playlist">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>C2FA960D-FC22-0110-3DB3-4D38D34CD168</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="playId" id="6643CEC3-80D6-8B1F-30E7-858DD8B905EC">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>E2C25A64-92B7-45E8-D842-480C5575BECA</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="F09FF0DC-9616-DD08-3745-2B810BC2D3FB">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:08 UTC</createdTime>
+<generatorID>AD3C0962-7990-B47F-23FD-78E5FD84AF45</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Playlist_ID" id="A58D709F-D210-587D-AF9F-300B5670FEEA">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6348B3DB-D3BA-D4A4-30F6-62ECF73DEE49" name="Playlist_PK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<ownerDesignName>spotify</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="A58D709F-D210-587D-AF9F-300B5670FEEA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

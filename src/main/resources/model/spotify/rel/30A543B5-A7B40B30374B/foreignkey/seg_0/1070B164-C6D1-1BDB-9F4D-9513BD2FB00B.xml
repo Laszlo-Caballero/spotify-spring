@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1070B164-C6D1-1BDB-9F4D-9513BD2FB00B" containerWithKeyObject="1485D164-5694-AA71-F159-A6645406A717" localFKIndex="CFBDADA1-E5AD-B9D2-217D-DD4E9691AEDB" name="Relation_4_Playlist_FK">
+<createdBy>laszl</createdBy>
+<createdTime>2025-08-11 01:55:09 UTC</createdTime>
+<generatorID>A1A26DB7-C7C1-E169-84B7-E60BB7256721</generatorID>
+<ownerDesignName>spotify</ownerDesignName>
+<referredTableLongName>Playlist</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DD343506-89EA-57D8-B9C5-9744C65C1017</referredTableID>
+<keyObject>6348B3DB-D3BA-D4A4-30F6-62ECF73DEE49</keyObject>
+<referredKeyID>6348B3DB-D3BA-D4A4-30F6-62ECF73DEE49</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Playlist_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
