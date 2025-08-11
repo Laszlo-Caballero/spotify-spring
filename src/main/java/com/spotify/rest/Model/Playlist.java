@@ -19,16 +19,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Playlist {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int playlistId;
-
     @Column
     public String name;
-
-
     @ManyToMany
     @JoinTable(
         name = "playlist_songs",

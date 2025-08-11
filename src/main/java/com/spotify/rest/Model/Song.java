@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,4 +47,7 @@ public class Song {
     @JsonView(View.SongView.class)
     private List<Album> albums;
     
+    @ManyToOne
+    @JoinColumn(name = "FileId")
+    private File file;
 }
