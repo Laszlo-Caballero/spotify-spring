@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.spotify.rest.Model.Song;
 import com.spotify.rest.Repository.FileRepository;
 import com.spotify.rest.utils.ApiResponse;
 
@@ -22,8 +21,7 @@ public class FileService {
 
 
     public ResponseEntity<?> createFile(MultipartFile file){
-        String[] fileSplit = file.getOriginalFilename().split("\\.");
-
+        String[] fileSplit = file.getOriginalFilename().replace(" ", "").split("\\.");
 
         String fileName = new StringBuilder().append(fileSplit[0]).append(System.currentTimeMillis()).append(".").append(fileSplit[1]).toString();
 
