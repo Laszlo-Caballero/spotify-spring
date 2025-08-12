@@ -25,19 +25,19 @@ import lombok.Setter;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     private int songId;
 
     @Column(name = "title")
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     private String title;
 
     @Column
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     public int views;
 
     @Column(columnDefinition = "BIT DEFAULT 1")
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     public Boolean status;
 
     @ManyToMany
@@ -49,5 +49,6 @@ public class Song {
     
     @ManyToOne
     @JoinColumn(name = "FileId")
+    @JsonView(View.SongView.class)
     private File file;
 }

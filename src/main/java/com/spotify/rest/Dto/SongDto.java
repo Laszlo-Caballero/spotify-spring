@@ -22,6 +22,13 @@ public class SongDto {
     @NotEmpty(message = "Artists cannot be empty")
     public List<@Min(value = 0, message = "Number of tracks must be a positive integer") Integer> albums;
 
+    @NotNull(message = "Files cannot be null")
+    @Positive(message = "Files must be a positive integer")
+    public int songFile;
+
+
+
+
     public Song builderSong(){
         Song song = new Song();
         song.setTitle(this.title);

@@ -2,12 +2,14 @@ package com.spotify.rest.Service;
 
 
 import java.io.File;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spotify.rest.Model.Song;
 import com.spotify.rest.Repository.FileRepository;
 import com.spotify.rest.utils.ApiResponse;
 
@@ -42,4 +44,11 @@ public class FileService {
         fileRepository.save(fileEntity);
         return ResponseEntity.ok(new ApiResponse<>(200, "File uploaded successfully", fileEntity));
     }
+
+    public ResponseEntity<ApiResponse<List<com.spotify.rest.Model.File>>> getAllFiles(){
+        var files = fileRepository.findAll();
+        return ResponseEntity.ok(new ApiResponse<>(200, "Files retrieved successfully", files));
+    }
+
+
 }

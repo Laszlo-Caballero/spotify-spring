@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.spotify.rest.Dto.SongDto;
 import com.spotify.rest.Model.Song;
 import com.spotify.rest.Repository.AlbumRepository;
+import com.spotify.rest.Repository.FileRepository;
 import com.spotify.rest.Repository.SongRepository;
 import com.spotify.rest.utils.ApiResponse;
 
@@ -21,6 +22,10 @@ public class SongService {
 
     @Autowired
     private AlbumRepository albumRepository;
+
+    @Autowired
+    private FileRepository fileRepository;
+
 
 
     public ResponseEntity<ApiResponse<List<Song>>> getAllSongs() {
@@ -51,7 +56,15 @@ public class SongService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(400, "Bad request", null));
         }
 
+        var findSongFile = fileRepository.findById(songDto.getSongFile()).orElse(null);
+
+        if(findSongFile == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(400, "Bad request", null));
+        }
+
+
         newSong.setAlbums(findAlbums);
+        newSong.setFile(findSongFile);
         songRepository.save(newSong);
 
         return ResponseEntity.ok(new ApiResponse<>(200, "Song create", newSong));
@@ -72,8 +85,15 @@ public class SongService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(400, "Bad request", null));
         }
 
+        var findSongFile = fileRepository.findById(songDto.getSongFile()).orElse(null);
+
+        if(findSongFile == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(400, "Bad request", null));
+        }
+
         findSong.setTitle(songDto.getTitle());
         findSong.setAlbums(findAlbums);
+        findSong.setFile(findSongFile);
         songRepository.save(findSong);
 
         return ResponseEntity.ok(new ApiResponse<>(200, "Song update",findSong));

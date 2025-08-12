@@ -2,6 +2,7 @@ package com.spotify.rest.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Views.View;
 
@@ -23,14 +24,18 @@ public class File {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.AlbumView.class, View.SongView.class, View.ArtistView.class})
+    @JsonView({View.FileView.class, View.AlbumView.class, View.SongView.class, View.ArtistView.class})
     private int fileId;
     @Column
-    @JsonView({View.AlbumView.class, View.SongView.class, View.ArtistView.class})
+    @JsonView({View.FileView.class, View.AlbumView.class, View.SongView.class, View.ArtistView.class})
     private String fileName;
 
     @OneToMany(mappedBy = "file")
+    @JsonView(View.FileView.class)
     private List<Album> albums;
 
+    @OneToMany(mappedBy = "file")
+    @JsonView(View.FileView.class)
+    private List<Song> songs;
 
 }

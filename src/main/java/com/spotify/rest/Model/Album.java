@@ -26,24 +26,22 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Album {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public int albumId;
 
     @Column
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public String NameAlbum;
 
     @Temporal(TemporalType.DATE)
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public Date releaseDate;
 
 
     @Column(columnDefinition = "BIT DEFAULT 1")
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public Boolean status;
 
     @ManyToMany
