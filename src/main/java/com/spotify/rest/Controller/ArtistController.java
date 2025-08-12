@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -33,6 +34,12 @@ public class ArtistController {
     @JsonView(View.ArtistView.class)
     public ResponseEntity<ApiResponse<List<Artist>>> getAllArtists() {
         return artistService.getAllArtists();
+    }
+
+    @GetMapping("/search")
+    @JsonView(View.ArtistView.class)
+    public ResponseEntity<ApiResponse<List<Artist>>> searchArtists(@RequestParam(defaultValue = "") String name) {
+        return artistService.searchArtists(name);
     }
 
     @GetMapping("/{id}")

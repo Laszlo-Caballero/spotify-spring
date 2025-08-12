@@ -8,4 +8,6 @@ import com.spotify.rest.Model.Artist;
 
 public interface ArtistRepository extends JpaRepository<Artist, Integer> {
     List<Artist> findAllByArtistIdIn(List<Integer> ids);
+
+    List<Artist> findByNameContainingIgnoreCase(String name);
 }

@@ -28,7 +28,7 @@ public class Artist {
 
     @Column(name = "name")
     @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
-    private String Name;
+    private String name;
 
     @Column(columnDefinition = "TEXT")
     @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
@@ -43,6 +43,6 @@ public class Artist {
     @JsonView(View.ArtistView.class)
     private List<Album> albums;
     @ManyToOne
-    @JsonView(View.ArtistView.class)
+    @JsonView({View.ArtistView.class, View.AlbumView.class})
     private File file;
 }

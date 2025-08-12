@@ -36,6 +36,19 @@ public class ArtistService {
         return ResponseEntity.ok(new ApiResponse<>(200, "Success", artist));
     }
 
+    public ResponseEntity<ApiResponse<List<Artist>>> searchArtists(String query) {
+        var isEmpty = query.isEmpty() || query.isBlank();
+
+        if(isEmpty){
+            var findArtists = artistRepository.findAll();
+            return ResponseEntity.ok(new ApiResponse<>(200, "Artists retrieved successfully", findArtists));
+        }
+
+        var findArtists = artistRepository.findByNameContainingIgnoreCase(query);
+        return ResponseEntity.ok(new ApiResponse<>(200, "Artists retrieved successfully", findArtists));
+    }
+
+
     public ResponseEntity<ApiResponse<Artist>> createArtist(ArtistDto artistDto) {
         var newArtist = artistDto.builderArtist();
 

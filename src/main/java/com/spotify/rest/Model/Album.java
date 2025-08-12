@@ -34,7 +34,7 @@ public class Album {
 
     @Column
     @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
-    public String NameAlbum;
+    public String nameAlbum;
 
     @Temporal(TemporalType.DATE)
     @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})

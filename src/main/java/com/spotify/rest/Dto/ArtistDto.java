@@ -23,7 +23,6 @@ public class ArtistDto {
 
 
     @NotNull(message = "Description cannot be null")
-    @Size(min = 1, max = 500, message = "Description must be between 1 and 500 characters")
     @NotBlank(message = "Description cannot be blank")
     public String description;
 
