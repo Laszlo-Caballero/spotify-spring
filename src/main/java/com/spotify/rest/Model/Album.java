@@ -3,6 +3,7 @@ package com.spotify.rest.Model;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Views.View;
 
@@ -37,6 +38,7 @@ public class Album {
 
     @Temporal(TemporalType.DATE)
     @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date releaseDate;
 
 

@@ -49,6 +49,6 @@ public class Song {
     
     @ManyToOne
     @JoinColumn(name = "FileId")
-    @JsonView(View.SongView.class)
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     private File file;
 }

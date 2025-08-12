@@ -30,7 +30,7 @@ public class Artist {
     @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
     private String Name;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
     public String description;
 
