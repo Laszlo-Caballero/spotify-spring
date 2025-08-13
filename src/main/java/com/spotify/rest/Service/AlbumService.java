@@ -12,6 +12,8 @@ import com.spotify.rest.Repository.AlbumRepository;
 import com.spotify.rest.Repository.ArtistRepository;
 import com.spotify.rest.Repository.FileRepository;
 import com.spotify.rest.utils.ApiResponse;
+import com.spotify.rest.utils.JpaSpecification;
+import com.spotify.rest.utils.SearchCriteria;
 
 @Service
 public class AlbumService {
@@ -24,8 +26,13 @@ public class AlbumService {
     private FileRepository fileRepository;
 
 
-    public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums(){
-        var albums = albumRepository.findAll();
+    public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums(String artistName) {
+
+        JpaSpecification<Album> spec = new JpaSpecification<>();
+        if(!artistName.isEmpty() && artistName != null){
+            spec.setCriteria(new SearchCriteria("artists.name", ":", artistName));
+        }
+        var albums = albumRepository.findAll(spec);
         return ResponseEntity.ok(new ApiResponse<>(200, "Albums retrieved successfully", albums));
     }
 
