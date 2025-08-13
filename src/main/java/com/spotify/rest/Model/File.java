@@ -42,4 +42,8 @@ public class File {
     @JsonView(View.FileView.class)
     private List<Artist> artists;
 
+    @OneToMany(mappedBy = "heroFile")
+    @JsonView(View.FileView.class)
+    private List<Artist> heroArtists;
+
 }

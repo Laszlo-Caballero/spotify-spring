@@ -30,6 +30,9 @@ public class ArtistDto {
     @Positive(message = "Files must be a positive integer")
     public int coverArtist;
 
+    @NotNull(message = "Files cannot be null")
+    @Positive(message = "Files must be a positive integer")
+    public int heroCover;
 
     public Artist builderArtist() {
         Artist artist = new Artist();

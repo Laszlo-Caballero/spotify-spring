@@ -45,4 +45,9 @@ public class Artist {
     @ManyToOne
     @JsonView({View.ArtistView.class, View.AlbumView.class})
     private File file;
+
+    @ManyToOne
+    @JsonView({View.ArtistView.class, View.AlbumView.class, View.SongView.class})
+    private File heroFile;
+
 }

@@ -59,6 +59,16 @@ public class ArtistService {
         }
         newArtist.setFile(coverArtist);
 
+
+        var heroCover = fileRepository.findById(artistDto.getHeroCover()).orElse(null);
+        if (heroCover == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ApiResponse<>(404, "Hero cover not found", null));
+        }
+        newArtist.setHeroFile(heroCover);
+
+
+
         artistRepository.save(newArtist);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(201, "Artist created successfully", newArtist));
@@ -76,9 +86,16 @@ public class ArtistService {
                     .body(new ApiResponse<>(404, "Cover artist not found", null));
         }
 
+var heroCover = fileRepository.findById(artistDto.getHeroCover()).orElse(null);
+        if (heroCover == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ApiResponse<>(404, "Hero cover not found", null));
+        }
+
         existingArtist.setName(artistDto.getName());
         existingArtist.setFile(coverArtist);
         existingArtist.setDescription(artistDto.getDescription());
+        existingArtist.setHeroFile(heroCover);
         artistRepository.save(existingArtist);
         return ResponseEntity.ok(new ApiResponse<>(200, "Artist updated successfully", existingArtist));
     }
