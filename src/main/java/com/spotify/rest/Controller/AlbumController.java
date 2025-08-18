@@ -2,6 +2,7 @@ package com.spotify.rest.Controller;
 
 import java.util.List;
 
+import com.spotify.rest.Views.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,28 +31,33 @@ public class AlbumController {
     private AlbumService albumService;
 
     @GetMapping
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums(@RequestParam(defaultValue = "") String artistName) {
         return albumService.getAllAlbums(artistName);
     }
 
     @GetMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> getAlbumById(@PathVariable int id) {
         return albumService.getAlbumById(id);
     }
 
 
     @PostMapping
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> createAlbum(@RequestBody @Valid AlbumDto album) {
         return albumService.createAlbum(album);
     }
 
 
     @PutMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Album>> updateAlbum(@PathVariable int id, @RequestBody @Valid AlbumDto album) {
         return albumService.updateAlbum(id, album);
     }
 
     @DeleteMapping("/{id}")
+    @JsonView(View.AlbumView.class)
     public ResponseEntity<ApiResponse<Void>> deleteAlbum(@PathVariable int id) {
         return albumService.deleteAlbum(id);
     }

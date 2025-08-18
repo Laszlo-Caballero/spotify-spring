@@ -2,6 +2,8 @@ package com.spotify.rest.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.spotify.rest.Views.View;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,26 +22,33 @@ import lombok.Setter;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public int artistId;
 
     @Column(name = "name")
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     private String name;
 
     @Column(columnDefinition = "TEXT")
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public String description;
 
 
     @Column(columnDefinition = "BIT DEFAULT 1")
+    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public Boolean status;
 
 
     @ManyToMany(mappedBy = "artists")
+    @JsonView({View.ArtistView.class})
     private List<Album> albums;
 
     @ManyToOne
+    @JsonView({View.ArtistView.class, View.SongView.class})
     private File file;
 
     @ManyToOne
+    @JsonView({View.ArtistView.class, View.SongView.class})
     private File heroFile;
 
 }

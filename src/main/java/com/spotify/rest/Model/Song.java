@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.spotify.rest.Views.View;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,24 +28,30 @@ import lombok.Setter;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     private int songId;
 
     @Column(name = "title")
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     private String title;
 
     @Column
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     public int views;
 
     @Column(columnDefinition = "BIT DEFAULT 1")
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     public Boolean status;
 
     @ManyToMany
     @JoinTable(name = "album_songs",
            joinColumns = @JoinColumn(name = "SongId"),
            inverseJoinColumns = @JoinColumn(name = "AlbumId"))
+    @JsonView({View.SongView.class})
     private List<Album> albums;
     
     @ManyToOne
     @JoinColumn(name = "FileId")
+    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     private File file;
 }

@@ -2,6 +2,7 @@ package com.spotify.rest.Controller;
 
 import java.util.List;
 
+import com.spotify.rest.Views.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,26 +31,31 @@ public class SongController {
     private SongService songService;
 
     @GetMapping
+    @JsonView(View.SongView.class)
     public ResponseEntity<ApiResponse<List<Song>>> getAllSongs(){
         return songService.getAllSongs();
      }
 
      @GetMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> getSongById(@PathVariable int id){
         return songService.getSongById(id);
      }
 
      @PostMapping
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> createSong(@RequestBody @Valid SongDto songDto){
         return songService.createSong(songDto);
      }
 
      @PutMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Song>> updateSong(@PathVariable int id, @RequestBody @Valid SongDto songDto){
         return songService.updateSong(id, songDto);
      }
 
      @DeleteMapping("/{id}")
+     @JsonView(View.SongView.class)
      public ResponseEntity<ApiResponse<Void>> deleteSong(@PathVariable int id){
         return songService.deleteSong(id);
      }

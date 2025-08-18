@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.*;
 
+import com.spotify.rest.Views.View;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +23,11 @@ public class File {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView({View.FileView.class, View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     private int fileId;
+
     @Column
+    @JsonView({View.FileView.class, View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     private String fileName;
 
     @OneToMany(mappedBy = "file")
