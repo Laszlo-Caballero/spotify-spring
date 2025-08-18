@@ -37,7 +37,7 @@ public class ArtistService {
     }
 
     public ResponseEntity<ApiResponse<List<Artist>>> searchArtists(String query) {
-        var isEmpty = query.isEmpty() || query.isBlank();
+        var isEmpty = query.isBlank();
 
         if(isEmpty){
             var findArtists = artistRepository.findAll();

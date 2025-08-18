@@ -29,7 +29,7 @@ public class AlbumService {
     public ResponseEntity<ApiResponse<List<Album>>> getAllAlbums(String artistName) {
 
         JpaSpecification<Album> spec = new JpaSpecification<>();
-        if(!artistName.isEmpty() && artistName != null){
+        if(!artistName.isEmpty()){
             spec.setCriteria(new SearchCriteria("artists.name", ":", artistName));
         }
         var albums = albumRepository.findAll(spec);

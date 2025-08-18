@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.spotify.rest.Model.File;
 import com.spotify.rest.Service.FileService;
-import com.spotify.rest.Views.View;
 import com.spotify.rest.utils.ApiResponse;
 
 @RestController
@@ -24,13 +23,11 @@ public class FileController {
     private FileService fileService;
 
     @GetMapping
-    @JsonView(View.FileView.class)
     public ResponseEntity<ApiResponse<List<File>>> getAllFiles() {
         return fileService.getAllFiles();
     }
 
     @PostMapping
-    @JsonView(View.FileView.class)
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
         return fileService.createFile(file);
     }

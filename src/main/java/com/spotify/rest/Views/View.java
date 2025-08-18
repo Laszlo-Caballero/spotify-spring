@@ -5,4 +5,6 @@ public class View {
     public static class ArtistView{}
     public static class SongView{}
     public static class FileView{}
+    public static class RolView{}
+    public static class UserView{}
 }

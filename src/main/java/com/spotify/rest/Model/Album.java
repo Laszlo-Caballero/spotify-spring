@@ -3,22 +3,9 @@ package com.spotify.rest.Model;
 import java.sql.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.spotify.rest.Views.View;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import jakarta.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,41 +16,35 @@ import lombok.Setter;
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public int albumId;
 
     @Column
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public String nameAlbum;
 
     @Temporal(TemporalType.DATE)
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date releaseDate;
 
 
     @Column(columnDefinition = "BIT DEFAULT 1")
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class, View.FileView.class})
     public Boolean status;
 
     @ManyToMany
     @JoinTable(name = "album_songs",
                joinColumns = @JoinColumn(name = "AlbumId"),
                inverseJoinColumns = @JoinColumn(name = "SongId"))
-    @JsonView({View.AlbumView.class, View.ArtistView.class})
     public List<Song> songs;
 
 
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "album_artists",
                joinColumns = @JoinColumn(name = "AlbumId"),
                inverseJoinColumns = @JoinColumn(name = "ArtistId"))
-    @JsonView({View.AlbumView.class, View.SongView.class})
     public List<Artist> artists;
 
 
     @ManyToOne
     @JoinColumn(name = "FileId")
-    @JsonView({View.AlbumView.class, View.ArtistView.class, View.SongView.class})
     public File file;
 }

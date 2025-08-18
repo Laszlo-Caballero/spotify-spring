@@ -3,6 +3,7 @@ package com.spotify.rest.Service;
 
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,9 @@ public class FileService {
 
 
     public ResponseEntity<?> createFile(MultipartFile file){
-        String[] fileSplit = file.getOriginalFilename().replace(" ", "").split("\\.");
+        String[] fileSplit = Objects.requireNonNull(file.getOriginalFilename()).replace(" ", "").split("\\.");
 
-        String fileName = new StringBuilder().append(fileSplit[0]).append(System.currentTimeMillis()).append(".").append(fileSplit[1]).toString();
+        String fileName = fileSplit[0] + System.currentTimeMillis() + "." + fileSplit[1];
 
         File directory = new File(FILE_DIRECTORY);
         if (!directory.exists()) {
@@ -33,7 +34,6 @@ public class FileService {
         try {
             file.transferTo(new File(FILE_DIRECTORY + fileName));
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(500).body(new ApiResponse<>(500, "File upload failed", null));
         }
 

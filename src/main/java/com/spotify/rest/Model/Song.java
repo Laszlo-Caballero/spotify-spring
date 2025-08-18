@@ -2,9 +2,10 @@ package com.spotify.rest.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.spotify.rest.Views.View;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,33 +23,28 @@ import lombok.Setter;
 @Table(name = "Song")
 @Getter
 @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "songId")
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     private int songId;
 
     @Column(name = "title")
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     private String title;
 
     @Column
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     public int views;
 
     @Column(columnDefinition = "BIT DEFAULT 1")
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class, View.FileView.class})
     public Boolean status;
 
     @ManyToMany
     @JoinTable(name = "album_songs",
            joinColumns = @JoinColumn(name = "SongId"),
            inverseJoinColumns = @JoinColumn(name = "AlbumId"))
-    @JsonView(View.SongView.class)
     private List<Album> albums;
     
     @ManyToOne
     @JoinColumn(name = "FileId")
-    @JsonView({View.SongView.class, View.AlbumView.class, View.ArtistView.class})
     private File file;
 }
