@@ -2,12 +2,14 @@ package com.spotify.rest.Service;
 
 import com.spotify.rest.Dto.AssingRolesDto;
 import com.spotify.rest.Dto.RolDto;
+import com.spotify.rest.Model.User;
 import com.spotify.rest.Repository.RolRepository;
 import com.spotify.rest.Repository.UserRepository;
 import com.spotify.rest.utils.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class RolService {
@@ -20,6 +22,23 @@ public class RolService {
 
     public ResponseEntity<?> getAllRoles() {
         var allRoles = rolRepository.findAll();
+
+        allRoles.forEach(r -> {
+            var users = r.getUsers();
+            r.setUsersWithThisRole(
+                    users.stream().map(
+                            s -> {
+                                User user = new User();
+                                user.setUserId(s.getUserId());
+                                user.setUsername(s.getUsername());
+                                user.setEmail(s.getEmail());
+                                return user;
+                            }
+                    ).toList()
+            );
+        });
+
+
 
         return  ResponseEntity.ok(new ApiResponse<>(200, "Roles retrieved successfully", allRoles));
     }

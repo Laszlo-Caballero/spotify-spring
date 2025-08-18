@@ -1,6 +1,7 @@
 package com.spotify.rest.Controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.spotify.rest.Views.View;
 import com.spotify.rest.utils.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

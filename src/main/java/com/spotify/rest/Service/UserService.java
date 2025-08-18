@@ -1,5 +1,7 @@
 package com.spotify.rest.Service;
 
+import com.spotify.rest.Model.Rol;
+import com.spotify.rest.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -54,6 +56,7 @@ public class UserService {
         String token = jwtUtil.generateToken(user);
 
         user.setToken(token);
+
 
         return ResponseEntity.ok(new ApiResponse<>(200, "User logged in successfully", user));
     }
